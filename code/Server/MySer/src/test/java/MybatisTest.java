@@ -14,10 +14,9 @@ public class MybatisTest {
         DataStrategy coursesStrategy = new CoursesStrategy();
         strategyContext.setContext(coursesStrategy);
         CoursesFactory coursesFactory = new CoursesFactory();
-        Courses courses = coursesFactory.getCourses(1, "高等数学", "李白", "102192113", "王维", "Courses");
+        Courses courses = coursesFactory.getCourses(6, "高等小白", "李白", "102192113", "王维", "Courses");
         strategyContext.setSql(courses);
         strategyContext.executeSql(Constant.INSERT, coursesStrategy);
-
 
     }
 }
