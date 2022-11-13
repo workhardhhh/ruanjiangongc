@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.app.mapper.CourseStudentMapper">
+    <!--
+    select 标签用于定义一个查询数据
+    resultType 属性定义返回值的数据类型
+    配置查询所有
+    -->
+    <select id="findAll" resultType="com.app.entity.CourseStudent">
+        select * from ${TableName}
+    </select>
+    <insert id="insert" parameterType="com.app.entity.CourseStudent">
+        insert into ${TableName} values (#{Sno},#{Name},#{OpenId},#{FormId})
+    </insert>
+    <update id="update" parameterType="com.app.entity.CourseStudent">
+        update ${TableName} set Name=#{Name},OpenId=#{OpenId},FormId=#{FormId} where Sno=#{Sno}
+    </update>
+    <delete id="delete" parameterType="com.app.entity.CourseStudent">
+        delete from ${TableName} where Sno=#{Sno}
+    </delete>
+    <update id="createTable" parameterType="com.app.entity.CourseStudent">
+        create table ${TableName} (
+                                      Sno char(20) not null ,
+                                      Name char(10),
+                                      OpenId char(10),
+                                      FormId char(10),
+                                      primary key(Sno)
+        )
+    </update>
+
+    <update id="drop" parameterType="com.app.entity.CourseStudent">
+        drop table if exists ${TableName}
+    </update>
+</mapper>

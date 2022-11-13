@@ -1,0 +1,20 @@
+server:
+  port: 8080
+  address: 0.0.0.0
+
+spring:
+  datasource:
+    username: root
+    password: a123456
+    url: jdbc:mysql://localhost:3306/wechat_ser?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    driver-class-name: com.mysql.jdbc.Driver
+
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: com.app.entity
+#showSql
+logging:
+  level:
+    com:
+      example:
+        mapper : debug
