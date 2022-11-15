@@ -20,6 +20,18 @@ public class ServiceManagement {
         DataService dataService = map.get(dataType);
         return dataService.findAll(TableName).toString();
     }
+    public int selectMaxId(String dataType, String TableName)
+    {
+        DataService dataService = map.get(dataType);
+        return dataService.selectMaxId(TableName);
+    }
+    public int selectCourses(String dataType, String TableName, String Tname, String Cname)
+    {
+        System.out.println("12122" + dataType);
+        DataService dataService = map.get(dataType);
+
+        return dataService.select(TableName ,Tname, Cname);
+    }
     public void insertCourse(String TableName, String Sname, String Tname, String Cname, String Sno, Integer id)
     {
 

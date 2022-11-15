@@ -22,7 +22,7 @@
         delete from ${TableName} where Sno=#{Sno}
     </delete>
     <update id="createTable" parameterType="com.app.entity.CourseStudent">
-        create table ${TableName} (
+        create table if not exists ${TableName} (
                                       Sno char(20) not null ,
                                       Name char(10),
                                       OpenId char(10),

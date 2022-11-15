@@ -24,6 +24,22 @@ public class CoursesService extends DataService<Courses,String,Integer, Date> {
     }
 
     @Override
+    public int select(String TableName, String Tname, String Cname) {
+        courses.setTname(TableName);
+        courses.setCname(Cname);
+        courses.setTname(Tname);
+        System.out.println("select" + TableName);
+       return coursesMapper.selectByClass(TableName);
+    }
+
+    @Override
+    public int selectMaxId(String TableName) {
+        courses.setTableName(TableName);
+
+        return coursesMapper.selectMaxId(courses);
+    }
+
+    @Override
     public void insert(Courses courses) {
         coursesMapper.insert(courses);
     }

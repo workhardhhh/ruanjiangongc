@@ -1,5 +1,6 @@
 package com.app.serinterface;
 
+import javax.swing.plaf.PanelUI;
 import java.util.List;
 
 public abstract class DataService<E,F,G,K> {
@@ -13,8 +14,12 @@ public abstract class DataService<E,F,G,K> {
     {
         System.out.println("courseTask insert\ncourseStudent insert");
     }
-
-
+    public int select(F f1, F f2, F f3)   {System.out.println("Courses select by Tname and Cname");
+    return -1;}
+    public int selectMaxId(String TableName)
+    {
+        return -1;
+    }
 
     public abstract void update(E e);
     public abstract void delete(E e);

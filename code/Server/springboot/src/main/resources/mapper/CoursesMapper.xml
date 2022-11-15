@@ -12,6 +12,13 @@
     <select id="findAll" resultType="com.app.entity.Courses">
         select * from ${TableName}
     </select>
+    <select id="selectByClass" parameterType="com.app.entity.Courses" resultType="Integer">
+        SELECT COUNT(*) as count FROM information_schema.TABLES WHERE table_name = #{TableName}
+
+    </select>
+    <select id="selectMaxId" resultType="Integer">
+        select Max(id) as id from ${TableName}
+    </select>
     <insert id="insert" parameterType="com.app.entity.Courses">
         insert into ${TableName} values (#{id},#{Sno},#{Sname},#{Cname},#{Tname})
     </insert>
@@ -22,12 +29,12 @@
         delete from ${TableName} where Sno=#{Sno}
     </delete>
     <update id="createTable" parameterType="com.app.entity.Courses">
-        create table ${TableName} (
+        create table if not exists ${TableName} (
             id int,
             Sno char(20) not null ,
             Sname char(10),
-            Cname char(10),
-            Tname char(10),
+            Cname char(20),
+            Tname char(20),
             primary key(id)
         )
     </update>
